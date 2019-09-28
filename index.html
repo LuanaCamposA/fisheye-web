@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>FishEye</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.0.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.0.0/firebase-database.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <link rel="stylesheet" type="text/css"  href="estilo.css" />
+
+     <!-- Bootstrap --> 
+     <link href="css/bootstrap.min.css" rel="stylesheet"> 
+     
+
+     <!-- Bootstrap core CSS 
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template 
+    <link href="starter-template.css" rel="stylesheet"> -->
+
+    
+
+    <!--<style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+    -->
+  </head>
+  <body>
+      <nav class="navbar navbar-light" style="background-color: rgb(177, 235, 217);">
+      <!-- Image and text -->
+        <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" >
+          <!--<img src="" width="30" height="30" class="d-inline-block align-top" alt="">-->
+          <blockquote class="blockquote text-center">
+            <p class="mb-0">FISHEYE</p>
+          </blockquote>
+           
+          </a>
+        </nav>
+      </nav>
+      <nav class="navbar navbar-default">
+        <div class="table-responsive-md">
+          <table class="table" style="border: 2px;">
+            <!-- Em linhas -->
+            <tr class="table-success" style="background-color: #e3f2fd;">
+              <th scope="col">Sensores
+              </th>
+              <th scope="col" id = coluna >Valores</th>
+            </tr>
+  
+            <tr  class="table-success">
+                <th scope="row">temp</th>
+                <td id= "temp"></td>
+            </tr>
+            <tr  class="table-success" style="background-color: #e3f2fd;">
+                <th scope="row">ph</th>
+                <td id = "ph"></td>
+            </tr>
+            <tr  class="table-success">
+                <th scope="row">tb</th>
+                <td id = "tb"></td>
+            </tr>
+            <tr class="table-success" style="background-color: #e3f2fd;">
+                <th scope="row">o2</th>
+                <td id = "o2" ></td>
+            </tr>
+            <tr  class="table-success">
+                <th scope="row">time</th>
+                <td id = "time"></td>
+            </tr>
+           
+            
+          </table>
+          </div>
+        </nav>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+          
+    <script>
+          // TODO: Replace the following with your app's Firebase project configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyCyNumX4FXX6WqodPKnXys9C4kRaOY6RjQ",
+          authDomain: "luana04061997.firebaseapp.com",
+          databaseURL: "https://luana04061997.firebaseio.com",
+          projectId: "luana04061997",
+          storageBucket: "luana04061997.appspot.com",
+          messagingSenderId: "200712264227"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+   
+    <script>
+      // Get a reference to the database service
+      var database = firebase.database();
+
+      //var ref = db.ref("dinosaurs");
+      //ref.orderByChild("dimensions/height").on("child_added", function(snapshot) {
+      //console.log(snapshot.key + " was " + snapshot.val().height + " meters tall");
+      //});
+
+      var phElement = document.getElementById('ph');
+      var phRef = database.ref('sensors/id:2');
+
+      var tempElement = document.getElementById('temp');
+      var tempRef = database.ref('sensors/id:2');
+
+      var tbElement = document.getElementById('tb');
+      var tbRef = database.ref('sensors/id:2');
+
+      var o2Element = document.getElementById('o2');
+      var o2Ref = database.ref('sensors/id:2');
+
+      var timeElement = document.getElementById('time');
+      var timeRef = database.ref('sensors/id:2');
+
+      // Sync objects changes
+      phRef.limitToLast(1).on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childData = childSnapshot.val().ph;
+          console.log("ph: " + childData);
+          phElement.innerText = childData;
+        });
+    });
+
+      tempRef.limitToLast(1).on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childData = childSnapshot.val().temperatura;
+          console.log("temp: " + childData);
+          tempElement.innerText = childData;
+        });
+    });
+
+      tbRef.limitToLast(1).on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childData = childSnapshot.val().turbidez;
+          console.log("tb: " + childData);
+          tbElement.innerText = childData;
+        });
+    });
+      
+      o2Ref.limitToLast(1).on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childData = childSnapshot.val().o2;
+          console.log("o2: " + childData);
+          o2Element.innerText = childData;
+        });
+    });
+
+      timeRef.limitToLast(1).on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childData = childSnapshot.val().time;
+          console.log("time: " + childData);
+          timeElement.innerText = childData;
+        });
+    });
+
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+  </body>
+</html>
