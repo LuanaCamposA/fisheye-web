@@ -25,81 +25,130 @@
      <link href="css/bootstrap.min.css" rel="stylesheet"> 
      
 
-     <!-- Bootstrap core CSS 
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
 
-    <!-- Custom styles for this template 
-    <link href="starter-template.css" rel="stylesheet"> -->
-
-    
-
-    <!--<style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-    -->
   </head>
-  <body>
-      <nav class="navbar navbar-light" style="background-color: rgb(177, 235, 217);">
-      <!-- Image and text -->
-        <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand" >
-          <!--<img src="" width="30" height="30" class="d-inline-block align-top" alt="">-->
-          <blockquote class="blockquote text-center">
-            <p class="mb-0">FISHEYE</p>
-          </blockquote>
-           
-          </a>
-        </nav>
+  <body>  
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(177, 235, 217);">
+        <a class="navbar-brand"> FISHEYE </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          </div>
+        </div>
       </nav>
+
       <nav class="navbar navbar-default">
         <div class="table-responsive-md">
           <table class="table" style="border: 2px;">
             <!-- Em linhas -->
             <tr class="table-success" style="background-color: #e3f2fd;">
-              <th scope="col">Sensores
+              <th scope="col" style="color: #008080">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #008080;">
+                          ID:
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #e3f2fd;">
+                          <a id = "id1" class="dropdown-item" href="#" style="color: #008080;">01</a>
+                          <div class="dropdown-divider"></div>
+                          <a type="button" class="dropdown-item " id="butao02" data-nome = "02" style="color: #008080;"> 02 </a>
+                            <script type="text/javascript">
+	                           function exibirMensagem(){
+                                var data = document.getElementById("navbarDropdown");
+                                data.innerHTML = (" ID: 02");
+                              }
+                              var btn = document.getElementById("butao02");
+                              btn.addEventListener("click", exibirMensagem);
+
+                            </script>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#" style="color: #008080;">03</a>
+                        </div>
+                  </li>
+              
               </th>
-              <th scope="col" id = coluna >Valores</th>
+              <th scope="col" style="color: #008080">Sensores</th>
+              <th scope="col" id = coluna style="color: #008080;">Valores</th>
             </tr>
   
             <tr  class="table-success">
-                <th scope="row">temp</th>
-                <td id= "temp"></td>
+                <th scope="row" style="color :  #00b3b3;"></th>
+                <th scope="row" style="color :  #00b3b3;">
+                <img src= "https://st2.depositphotos.com/3907761/9968/v/950/depositphotos_99683504-stock-illustration-thermometer-vector-icon.jpg" style="height: 40px; width: 50px; opacity: 0.3;">
+                Temperatura
+                </th>
+                <td id= "temp" style="color :  #00b3b3;"></td>
             </tr>
             <tr  class="table-success" style="background-color: #e3f2fd;">
-                <th scope="row">ph</th>
-                <td id = "ph"></td>
+                <th scope="row" style="color :  #00b3b3;"></th>
+                <th scope="row" style="color :  #00b3b3;">
+                <img src="https://st4.depositphotos.com/16499398/21247/v/1600/depositphotos_212471044-stock-illustration-ph-meter-icon-vector-isolated.jpg" style="height: 40px; width: 40px; opacity: 0.45;">
+                Ph
+                </th>
+                <td id = "ph" style="color :  #00b3b3;"></td>
             </tr>
             <tr  class="table-success">
-                <th scope="row">tb</th>
-                <td id = "tb"></td>
+                <th scope="row" style="color :  #00b3b3;"></th>
+                <th scope="row" style="color :  #00b3b3;">
+                <img src="erlenmeyer-flask.png" style="height: 30px; width: 30px; opacity: 0.3;">
+                Turbidez
+                </th>
+                <td id = "tb" style="color :  #00b3b3;"></td>
             </tr>
             <tr class="table-success" style="background-color: #e3f2fd;">
-                <th scope="row">o2</th>
-                <td id = "o2" ></td>
+                <th scope="row" style="color :  #00b3b3;"></th>
+                <th scope="row" style="color :  #00b3b3;">
+                <img src="chemical-formula.png" style="height: 30px; width: 30px; opacity: 0.3;">
+                O2 dissolvido
+                </th>
+                <td id = "o2" style="color :  #00b3b3;"></td>
             </tr>
             <tr  class="table-success">
-                <th scope="row">time</th>
-                <td id = "time"></td>
+                <th scope="row" style="color :  #00b3b3;"></th>
+                <th scope="row" style="color :  #00b3b3;">
+                <img src="hourglass.png" style="height: 30px; width: 30px; opacity: 0.3;">
+                Time
+                </th>
+                <td id = "time" style="color :  #00b3b3;"></td>
             </tr>
            
             
-          </table>
-          </div>
-        </nav>
+        </table>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-default">
+      <div class="container .container-fluid">
+          <form>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label" id= "tm">T. máximo</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="tmaximo" placeholder="tempo máximo">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">T. de coleta</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control"  id="tcoleta" placeholder="tempo de coleta (em horas)">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Variação</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="variacao" placeholder="tempo de coleta (em horas)">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id= "btenviar"> Enviar </button>
+            
+          </form>
+      </div>
+    </nav>
+    
 
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
@@ -124,10 +173,25 @@
       // Get a reference to the database service
       var database = firebase.database();
 
-      //var ref = db.ref("dinosaurs");
-      //ref.orderByChild("dimensions/height").on("child_added", function(snapshot) {
-      //console.log(snapshot.key + " was " + snapshot.val().height + " meters tall");
-      //});
+      
+      var btnEnviar = document.getElementById("btenviar");
+      btnEnviar.addEventListener("click", enviaDados);
+
+      function enviaDados(){
+        var tempomaximo = document.getElementById("tmaximo").value;
+        var tempocoleta = document.getElementById("tcoleta").value;
+        var tempovariacao = document.getElementById("variacao").value;
+   
+        var userId = "2";
+        var postsRef = firebase.database().ref('sensors/id:' + userId + '/config');
+
+        postsRef.push({
+          tempoMaximo: tempomaximo,
+          tempoColeta: tempocoleta,
+          tempoDeVariacao: tempovariacao
+        });
+      }
+
 
       var phElement = document.getElementById('ph');
       var phRef = database.ref('sensors/id:2');
