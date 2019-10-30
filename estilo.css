@@ -1,0 +1,35 @@
+body {
+    height: 100%;
+}
+.bg {
+    /* The image used */
+    background-image: url("https://www.viajandonoblog.com/wp-content/uploads/2015/06/Mapa-de-Recife-Pernambuco-Google-Maps-em-30.06.15.jpg");
+  
+    /* Full height */
+    height: 100%;
+    width: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+.foraBotao{
+    width: 100px;
+    height: 100px;
+}
+    
+.botao {
+background-image:url("https://static.vecteezy.com/system/resources/previews/000/532/913/non_2x/location-icon-symbol-vector.jpg");
+height: 100px;
+width: 100px;
+opacity: 1.0;
+border-bottom-left-radius: 50%;
+border-bottom-right-radius: 50%;
+}
+
+.coluna{
+    align-content: center;
+}
